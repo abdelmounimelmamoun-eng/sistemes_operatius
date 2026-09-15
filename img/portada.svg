@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="400" height="260">
+  <defs>
+    <linearGradient id="fons" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#122542"/>
+      <stop offset="55%" stop-color="#0c6e73"/>
+      <stop offset="100%" stop-color="#c9821f"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="400" height="260" rx="18" fill="url(#fons)"/>
+  <rect x="30" y="30" width="340" height="200" rx="10" fill="#0b0f14"/>
+  <circle cx="52" cy="50" r="6" fill="#ff5f56"/>
+  <circle cx="72" cy="50" r="6" fill="#ffbd2e"/>
+  <circle cx="92" cy="50" r="6" fill="#27c93f"/>
+  <text x="52" y="95" font-family="Consolas, monospace" font-size="15" fill="#27c93f">$ whoami</text>
+  <text x="52" y="120" font-family="Consolas, monospace" font-size="15" fill="#e6e6e6">alumne_iesebre</text>
+  <text x="52" y="150" font-family="Consolas, monospace" font-size="15" fill="#27c93f">$ cat sprint1.md</text>
+  <text x="52" y="175" font-family="Consolas, monospace" font-size="15" fill="#e6e6e6">Instal·lant el SO...</text>
+  <text x="52" y="205" font-family="Consolas, monospace" font-size="15" fill="#27c93f">$ _</text>
+</svg>

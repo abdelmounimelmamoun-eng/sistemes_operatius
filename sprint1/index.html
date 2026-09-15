@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sprint 1 · Instal·lació i configuració inicial</title>
+<link rel="stylesheet" href="../css/estils.css">
+</head>
+<body>
+
+<header class="hero">
+  <nav class="hero-nav">
+    <a href="../index.html">Portada</a>
+    <a href="../sprints.html">Índex de sprints</a>
+    <a href="https://github.com/" target="_blank" rel="noopener">Codi a GitHub ↗</a>
+  </nav>
+  <div class="hero-titol">
+    <p class="miguetes"><a href="../index.html">Portada</a> / <a href="../sprints.html">Índex de sprints</a> / Sprint 1</p>
+    <h1>Sprint 1 · Instal·lació i configuració inicial</h1>
+    <p class="subtitol">Índex d'apartats d'aquest sprint</p>
+  </div>
+</header>
+
+<main class="contenidor">
+  <section class="panell">
+    <a id="index-apartats"></a>
+    <table class="taula-apartats">
+      <thead>
+        <tr><th>#</th><th>Apartat</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><a href="#apartat1">Instal·lació del sistema operatiu</a></td></tr>
+        <tr><td>2</td><td><a href="#apartat2">Configuració de xarxa bàsica</a></td></tr>
+        <tr><td>3</td><td><a href="#apartat3">Creació d'usuaris i grups</a></td></tr>
+        <tr><td>4</td><td><a href="#apartat4">Comprovació final</a></td></tr>
+      </tbody>
+    </table>
+
+    <article class="apartat" id="apartat1">
+      <h2>1. Instal·lació del sistema operatiu</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Un cop arrencat
+         el suport d'instal·lació, cal seguir l'assistent i triar les opcions de
+         particionat abans de continuar. <strong>Aquest pas és irreversible</strong>,
+         així que revisa bé el disc de destinació.</p>
+      <ul>
+        <li>Arrencar des del USB o la imatge ISO.</li>
+        <li>Triar l'idioma i la distribució de teclat.</li>
+        <li>Configurar el particionat del disc.</li>
+        <li>Esperar que finalitzi la còpia d'arxius i reiniciar.</li>
+      </ul>
+      <img src="../img/exemple.svg" alt="Exemple de captura de pantalla de l'assistent d'instal·lació">
+      <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+         Un cop reiniciat el sistema, comprova que arrenca correctament i que
+         reconeix tot el maquinari abans de continuar amb el següent apartat.</p>
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
+    <article class="apartat" id="apartat2">
+      <h2>2. Configuració de xarxa bàsica</h2>
+      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+         ut aliquip ex ea commodo consequat. La configuració de xarxa és
+         <strong>imprescindible</strong> per poder actualitzar el sistema i
+         instal·lar programari nou.</p>
+      <ul>
+        <li>Comprovar l'adreça IP assignada amb <code>ip a</code>.</li>
+        <li>Configurar una IP estàtica si el servei ho requereix.</li>
+        <li>Verificar la connectivitat amb <code>ping</code>.</li>
+      </ul>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+         dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
+    <article class="apartat" id="apartat3">
+      <h2>3. Creació d'usuaris i grups</h2>
+      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui
+         blanditiis praesentium voluptatum deleniti atque corrupti. Cada
+         usuari nou s'hauria d'assignar al <strong>grup mínim necessari</strong>
+         segons les tasques que ha de fer.</p>
+      <img src="../img/exemple.svg" alt="Exemple de captura de pantalla de la gestió d'usuaris">
+      <ul>
+        <li>Crear l'usuari amb <code>useradd</code>.</li>
+        <li>Assignar contrasenya amb <code>passwd</code>.</li>
+        <li>Afegir l'usuari als grups necessaris amb <code>usermod -aG</code>.</li>
+      </ul>
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
+    <article class="apartat" id="apartat4">
+      <h2>4. Comprovació final</h2>
+      <p>Et harum quidem rerum facilis est et expedita distinctio. Nam libero
+         tempore, cum soluta nobis est eligendi optio cumque nihil impedit.
+         Abans de donar per acabat el sprint, revisa aquest resum:</p>
+      <ul>
+        <li>El sistema arrenca sense errors.</li>
+        <li>La xarxa respon correctament als <em>pings</em>.</li>
+        <li><strong>Els usuaris i grups creats coincideixen amb l'enunciat.</strong></li>
+      </ul>
+      <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
+         fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
+         sequi nesciunt.</p>
+      <p class="tornar-index"><a href="#index-apartats">↑ Tornar a l'índex</a></p>
+    </article>
+  </section>
+</main>
+
+<footer class="peu">
+  <p class="peu-llicencia">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="license noopener">
+      <img src="https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png" alt="Llicència Creative Commons Reconeixement-NoComercial-CompartirIgual 4.0" width="88" height="31">
+    </a>
+    <span>Contingut sota llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="license noopener">CC BY-NC-SA 4.0</a></span>
+  </p>
+  <p class="autoria">Autor/a: <strong>Nom Cognom1 Cognom2</strong> · Pràctica 0 · Sistemes Operatius (ISOPJ1)</p>
+</footer>
+
+</body>
+</html>
