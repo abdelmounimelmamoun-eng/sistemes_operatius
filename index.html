@@ -37,11 +37,6 @@
       <span>Terminal.sh</span>
     </div>
 
-    <div class="desktop-icon" onclick="openWindow('win-license')">
-      <div class="icon-box">📜</div>
-      <span>Llicencia.txt</span>
-    </div>
-
     <!-- FINESTRA 1: Contingut Principal del repositori -->
     <div class="window" id="win-main" style="top: 20px; left: 60px; width: 850px; height: 580px;">
       <div class="window-header">
@@ -65,7 +60,7 @@
         <h2>Llicència</h2>
         <div class="callout">
           <div>📜</div>
-          <div>Aquest contingut està baix la llicència <a href="javascript:void(0)" onclick="openWindow('win-license')">Creative Commons BY-NC-SA 4.0 ES</a>.</div>
+          <div>Aquest contingut està baix la llicència <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank">Creative Commons BY-NC-SA 4.0 ES ↗</a>.</div>
         </div>
 
         <h2>Documentació General</h2>
@@ -73,15 +68,15 @@
           <div class="card">
             <span class="badge badge--green">LICÈNCIA</span>
             <h3 style="margin-top: 8px;">
-              <a href="javascript:void(0)" onclick="openWindow('win-license')">Llicència CC BY-NC-SA 4.0</a>
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank">Llicència CC BY-NC-SA 4.0 ↗</a>
             </h3>
-            <p>Termes d'ús, reconeixement i drets de distribució.</p>
+            <p>Termes d'ús oficials, reconeixement i drets de distribució.</p>
           </div>
 
           <div class="card">
             <span class="badge badge--blue">README</span>
             <h3 style="margin-top: 8px;">
-              <a href="https://github.com/abdelmounimelmamoun-eng/sistemes_operatius/blob/main/README.md" target="_blank">Fitxer README.md</a>
+              <a href="https://github.com/abdelmounimelmamoun-eng/sistemes_operatius/blob/main/README.md" target="_blank">Fitxer README.md ↗</a>
             </h3>
             <p>Visió general i estructura del repositori a GitHub.</p>
           </div>
@@ -172,7 +167,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>General</td><td>Llicència</td><td><code>LICENSE.md</code></td><td><a href="javascript:void(0)" onclick="openWindow('win-license')">Obrir ↗</a></td></tr>
+            <tr><td>General</td><td>Llicència</td><td><code>LICENSE.md</code></td><td><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank">Obrir ↗</a></td></tr>
             <tr><td>General</td><td>README</td><td><code>README.md</code></td><td><a href="https://github.com/abdelmounimelmamoun-eng/sistemes_operatius/blob/main/README.md" target="_blank">Obrir ↗</a></td></tr>
             <tr><td>Projecte 1</td><td>Sprint 1</td><td><code>Projecte1/Sprint1/sp1.md</code></td><td><a href="Projecte1/Sprint1/sp1.md" target="_blank">Obrir ↗</a></td></tr>
             <tr><td>Projecte 1</td><td>Sprint 2</td><td><code>Projecte1/Sprint2/sp2.md</code></td><td><a href="Projecte1/Sprint2/sp2.md" target="_blank">Obrir ↗</a></td></tr>
@@ -212,47 +207,6 @@
       </div>
     </div>
 
-    <!-- FINESTRA 4: Llicència Creative Commons -->
-    <div class="window hidden" id="win-license" style="top: 80px; left: 120px; width: 700px; height: 500px;">
-      <div class="window-header">
-        <div class="window-title">
-          <span class="win-icon">📜</span> C:\Sistemes_Informatic\LICENSE.md
-        </div>
-        <div class="window-controls">
-          <button onclick="minimizeWindow('win-license')">─</button>
-          <button onclick="maximizeWindow('win-license')">🗖</button>
-          <button class="close-btn" onclick="closeWindow('win-license')">✕</button>
-        </div>
-      </div>
-      <div class="window-body">
-        <h2>Llicència Creative Commons</h2>
-        <p><strong>Reconeixement - No Comercial - Compartir Igual 4.0 Espanya (CC BY-NC-SA 4.0)</strong></p>
-        <p style="margin-top: 5px;"><strong>Sistemes Informàtics</strong> © 2026 per <strong>Abdelmounim El Mamoun</strong></p>
-        
-        <div style="display:flex; gap:10px; margin: 15px 0;">
-          <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt="CC" width="32"/>
-          <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt="BY" width="32"/>
-          <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" alt="NC" width="32"/>
-          <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="SA" width="32"/>
-        </div>
-
-        <div class="callout">
-          <div>ℹ️</div>
-          <div>Aquest treball està licenciat sota la llicència internacional CC BY-NC-SA 4.0.</div>
-        </div>
-
-        <h3 style="margin-top: 15px; color: var(--accent);">Resum de condicions</h3>
-        <ul style="margin-left: 20px; margin-top: 8px; color: var(--ink-muted); font-size: 0.85rem; line-height: 1.6;">
-          <li><strong>Reconeixement:</strong> Heu de reconèixer l'autoria original adequadament.</li>
-          <li><strong>No Comercial:</strong> No podeu utilitzar el material amb finalitats comercials.</li>
-          <li><strong>Compartir Igual:</strong> Si adapteu o transformeu el material, heu de distribuir les obres derivades sota la mateixa llicència.</li>
-        </ul>
-
-        <h3 style="margin-top: 15px; color: var(--accent);">Text legal</h3>
-        <p>Podeu consultar el text legal complet a: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.es" target="_blank">CC BY-NC-SA 4.0 Legal Code ↗</a></p>
-      </div>
-    </div>
-
   </div>
 
   <!-- Menú d'Inici -->
@@ -277,10 +231,6 @@
           <div style="font-size: 20px;">⚡</div>
           <div style="font-size: 0.8rem;">Terminal</div>
         </div>
-        <div class="tile" onclick="openWindow('win-license'); toggleStartMenu();">
-          <div style="font-size: 20px;">📜</div>
-          <div style="font-size: 0.8rem;">Llicència</div>
-        </div>
       </div>
     </div>
   </div>
@@ -297,7 +247,6 @@
       <div class="taskbar-item active" id="tb-win-main" onclick="toggleWindowFromTaskbar('win-main')">💻 Sistemes</div>
       <div class="taskbar-item hidden" id="tb-win-docs" onclick="toggleWindowFromTaskbar('win-docs')">📂 Documentació</div>
       <div class="taskbar-item hidden" id="tb-win-terminal" onclick="toggleWindowFromTaskbar('win-terminal')">⚡ Terminal</div>
-      <div class="taskbar-item hidden" id="tb-win-license" onclick="toggleWindowFromTaskbar('win-license')">📜 Llicència</div>
     </div>
 
     <div class="system-tray">
