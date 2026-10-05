@@ -13,7 +13,7 @@ https://abdelmounimelmamoun-eng.github.io/sistemes_operatius/
 
 ## Llicència
 
-Aquets contingut està protegit per la llicència. [Creative Commons Reconocimiento - No Comercial - Compartir Igual 4.0 España (CC BY-NC-SA 4.0)](LICENSE.md)
+Aquest contingut està protegit per la llicència [Creative Commons Reconocimiento - No Comercial - Compartir Igual 4.0 España (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca).
 
 
 ---
