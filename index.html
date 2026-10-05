@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistemes Informàtics — GitHub Pages</title>
+  
+  <!-- Fonts Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Estils -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+
+  <!-- Capes de fons -->
+  <div class="noise-overlay"></div>
+  <div class="bg-grid"></div>
+
+  <!-- Escriptori de Windows 10 -->
+  <div class="desktop">
+    <!-- Icones d'accés directe -->
+    <div class="desktop-icon" onclick="openWindow('win-main')">
+      <div class="icon-box">💻</div>
+      <span>Sistemes.exe</span>
+    </div>
+    
+    <div class="desktop-icon" onclick="openWindow('win-docs')">
+      <div class="icon-box">📂</div>
+      <span>Projectes_Docs</span>
+    </div>
+
+    <div class="desktop-icon" onclick="openWindow('win-terminal')">
+      <div class="icon-box">⚡</div>
+      <span>Terminal.sh</span>
+    </div>
+
+    <!-- FINESTRA 1: Contingut Principal -->
+    <div class="window active" id="win-main" style="top: 30px; left: 60px; width: 880px; height: 600px;">
+      <div class="window-header">
+        <div class="window-title">
+          <span class="win-icon">💻</span> C:\Sistemes_Informatic\Index.html
+        </div>
+        <div class="window-controls">
+          <button onclick="minimizeWindow('win-main')">─</button>
+          <button onclick="maximizeWindow('win-main')">🗖</button>
+          <button class="close-btn" onclick="closeWindow('win-main')">✕</button>
+        </div>
+      </div>
+      
+      <div class="window-body">
+        <header class="page-hero" style="padding: var(--s3) 0 var(--s2); margin-bottom: var(--s3);">
+          <div class="hero-category">
+            <span class="hero-cat-line"></span>
+            [ SISTEMES_OPERATIUS ]
+          </div>
+          <h1 class="hero-title" style="font-size: var(--text-3xl);">Sistemes Informàtics</h1>
+          <p class="hero-subtitle">Repositori amb la informació de <strong>Abdelmounim El Mamoun</strong>.</p>
+          <p class="hero-meta">Índex amb els apartats del repositori</p>
+        </header>
+
+        <h2>// Llicència</h2>
+        <div class="callout callout--info">
+          <div>📜</div>
+          <div>Aquest contingut està baix la llicència <a href="LICENSE.md" target="_blank" style="color: var(--accent); font-weight: 600;">Creative Commons BY-NC-SA 4.0 ES</a>.</div>
+        </div>
+
+        <h2>// Contingut del curs — Projecte 1</h2>
+        <div class="card-grid">
+          <div class="card">
+            <span class="badge badge--blue">Sprint 1</span>
+            <h3 style="margin-top: 10px; font-size: var(--text-base);"><a href="Projecte1/Sprint1/sp1.md">Instal·lació i configuració inicial</a></h3>
+            <p>Preparació de l'entorn de treball i instal·lació dels sistemes base.</p>
+          </div>
+          
+          <div class="card">
+            <span class="badge badge--green">Sprint 2</span>
+            <h3 style="margin-top: 10px; font-size: var(--text-base);"><a href="Projecte1/Sprint2/sp2.md">Gestió de programari i usuaris</a></h3>
+            <p>Administració de paquets, permisos i usuaris del sistema.</p>
+          </div>
+
+          <div class="card">
+            <span class="badge badge--amber">Sprint 3</span>
+            <h3 style="margin-top: 10px; font-size: var(--text-base);"><a href="Projecte1/Sprint3/sp3.md">Seguretat i administració</a></h3>
+            <p>Polítiques de seguretat, gestió de permisos avançats i politiques.</p>
+          </div>
+
+          <div class="card">
+            <span class="badge badge--blue">Sprint 4</span>
+            <h3 style="margin-top: 10px; font-size: var(--text-base);"><a href="Projecte1/Sprint4/sp4.md">Monitorització, connexió remota i llicenciament</a></h3>
+            <p>Eines de monitoratge de recursos, SSH/RDP i llicències.</p>
+          </div>
+        </div>
+
+        <h2>// Contingut del curs — Projecte 2</h2>
+        <div class="card-grid">
+          <div class="card">
+            <span class="badge badge--blue">Sprint 1</span>
+            <h3 style="margin-top: 10px; font-size: var(--text-base);"><a href="Projecte2/Sprint1/SP1.md">Avaluació, Instal·lació i Configuració de Xarxes i SO</a></h3>
+            <p>Disseny de xarxes, adreçament IP i instal·lació de servidors.</p>
+          </div>
+          
+          <div class="card">
+            <span class="badge badge--green">Sprint 2</span>
+            <h3 style="margin-top: 10px; font-size: var(--text-base);"><a href="Projecte2/Sprint2/SP2.md">Gestió de la Informació del Sistema i Administració</a></h3>
+            <p>Estructures de fitxers, automatització de tasques i registres.</p>
+          </div>
+
+          <div class="card">
+            <span class="badge badge--amber">Sprint 3</span>
+            <h3 style="margin-top: 10px; font-size: var(--text-base);"><a href="Projecte2/Sprint3/SP3.md">Gestió de Dominis i Accessos</a></h3>
+            <p>Configuració de serveis de directori, dominis i control d'accés.</p>
+          </div>
+
+          <div class="card">
+            <span class="badge badge--blue">Sprint 4</span>
+            <h3 style="margin-top: 10px; font-size: var(--text-base);"><a href="Projecte2/Sprint4/SP4.md">Gestió de Recursos en Xarxa, Seguretat i Còpies</a></h3>
+            <p>Compartició de recursos, firewall i estratègies de backup.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="window-statusbar">
+        <div class="status-item"><span class="status-dot"></span> SISTEMA ACTIU</div>
+        <div class="status-item status-date">Abdelmounim El Mamoun</div>
+      </div>
+    </div>
+
+    <!-- FINESTRA 2: Explorador de Projectes -->
+    <div class="window hidden" id="win-docs" style="top: 70px; left: 120px; width: 750px; height: 500px;">
+      <div class="window-header">
+        <div class="window-title">
+          <span class="win-icon">📂</span> C:\Sistemes_Informatic\Projectes_Docs
+        </div>
+        <div class="window-controls">
+          <button onclick="minimizeWindow('win-docs')">─</button>
+          <button onclick="maximizeWindow('win-docs')">🗖</button>
+          <button class="close-btn" onclick="closeWindow('win-docs')">✕</button>
+        </div>
+      </div>
+      <div class="window-body">
+        <h2>// Fitxers de la Documentació</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Projecte</th>
+              <th>Sprint</th>
+              <th>Ruta del Fitxer .md</th>
+              <th>Enllaç Directe</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="badge badge--blue">Projecte 1</span></td>
+              <td>Sprint 1</td>
+              <td><code>Projecte1/Sprint1/sp1.md</code></td>
+              <td><a href="Projecte1/Sprint1/sp1.md" target="_blank">Obrir ↗</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge--blue">Projecte 1</span></td>
+              <td>Sprint 2</td>
+              <td><code>Projecte1/Sprint2/sp2.md</code></td>
+              <td><a href="Projecte1/Sprint2/sp2.md" target="_blank">Obrir ↗</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge--blue">Projecte 1</span></td>
+              <td>Sprint 3</td>
+              <td><code>Projecte1/Sprint3/sp3.md</code></td>
+              <td><a href="Projecte1/Sprint3/sp3.md" target="_blank">Obrir ↗</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge--blue">Projecte 1</span></td>
+              <td>Sprint 4</td>
+              <td><code>Projecte1/Sprint4/sp4.md</code></td>
+              <td><a href="Projecte1/Sprint4/sp4.md" target="_blank">Obrir ↗</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge--amber">Projecte 2</span></td>
+              <td>Sprint 1</td>
+              <td><code>Projecte2/Sprint1/SP1.md</code></td>
+              <td><a href="Projecte2/Sprint1/SP1.md" target="_blank">Obrir ↗</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge--amber">Projecte 2</span></td>
+              <td>Sprint 2</td>
+              <td><code>Projecte2/Sprint2/SP2.md</code></td>
+              <td><a href="Projecte2/Sprint2/SP2.md" target="_blank">Obrir ↗</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge--amber">Projecte 2</span></td>
+              <td>Sprint 3</td>
+              <td><code>Projecte2/Sprint3/SP3.md</code></td>
+              <td><a href="Projecte2/Sprint3/SP3.md" target="_blank">Obrir ↗</a></td>
+            </tr>
+            <tr>
+              <td><span class="badge badge--amber">Projecte 2</span></td>
+              <td>Sprint 4</td>
+              <td><code>Projecte2/Sprint4/SP4.md</code></td>
+              <td><a href="Projecte2/Sprint4/SP4.md" target="_blank">Obrir ↗</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FINESTRA 3: Terminal CLI -->
+    <div class="window hidden" id="win-terminal" style="top: 110px; left: 180px; width: 680px; height: 420px;">
+      <div class="window-header">
+        <div class="window-title">
+          <span class="win-icon">⚡</span> Bash Terminal - CyberShell v2.4
+        </div>
+        <div class="window-controls">
+          <button onclick="minimizeWindow('win-terminal')">─</button>
+          <button onclick="maximizeWindow('win-terminal')">🗖</button>
+          <button class="close-btn" onclick="closeWindow('win-terminal')">✕</button>
+        </div>
+      </div>
+      <div class="window-body" style="background: #040308; padding: 0;">
+        <div class="terminal-body" id="term-body" style="min-height: 100%; border: none;">
+          <div class="out">CyberShell CLI v2.4.0-release</div>
+          <div class="out">Escriu <span class="cmd">'help'</span> per veure les ordres disponibles.</div>
+          <br>
+        </div>
+      </div>
+      <div style="background: #040308; padding: 8px 16px; border-top: 1px solid var(--border); display: flex; align-items: center; gap: 8px;">
+        <span style="color: var(--accent); font-family: var(--font-mono); font-size: var(--text-sm);">$</span>
+        <input type="text" id="term-input" style="background: transparent; border: none; outline: none; color: var(--ink); font-family: var(--font-mono); font-size: var(--text-sm); width: 100%;" placeholder="Escriu una ordre..." onkeydown="handleTerminal(event)">
+      </div>
+    </div>
+  </div>
+
+  <!-- Menú d'Inici de Windows 10 -->
+  <div class="start-menu" id="start-menu">
+    <div class="start-sidebar">
+      <button title="Usuari">👤</button>
+      <button title="Configuració">⚙️</button>
+      <button title="Apagar" onclick="alert('Sistema en funcionament continu.')">🔌</button>
+    </div>
+    <div class="start-tiles">
+      <div class="start-header">Aplicacions Principals</div>
+      <div class="tiles-grid">
+        <div class="tile" onclick="openWindow('win-main'); toggleStartMenu();">
+          <div class="tile-icon">💻</div>
+          <div class="tile-label">Sistemes Informàtics</div>
+        </div>
+        <div class="tile" onclick="openWindow('win-docs'); toggleStartMenu();">
+          <div class="tile-icon">📂</div>
+          <div class="tile-label">Documentació</div>
+        </div>
+        <div class="tile" onclick="openWindow('win-terminal'); toggleStartMenu();">
+          <div class="tile-icon">⚡</div>
+          <div class="tile-label">Terminal CLI</div>
+        </div>
+        <div class="tile" onclick="window.open('https://github.com', '_blank'); toggleStartMenu();">
+          <div class="tile-icon">🐙</div>
+          <div class="tile-label">GitHub Repo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Barra de Tasques de Windows 10 -->
+  <div class="taskbar">
+    <button class="start-btn" onclick="toggleStartMenu()">
+      <svg width="18" height="18" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 12.402L35.487 7.58V41.51H0V12.402ZM35.487 45.49V79.42L0 74.598V45.49H35.487ZM39.513 7.032L88 0V41.51H39.513V7.032ZM88 45.49L39.513 80.968V45.49H88Z" fill="currentColor"/>
+      </svg>
+    </button>
+
+    <div class="search-bar">
+      <span>🔍</span>
+      <input type="text" placeholder="Cerca al sistema..." id="system-search">
+    </div>
+
+    <div class="taskbar-apps">
+      <div class="taskbar-item active" id="tb-win-main" onclick="toggleWindowFromTaskbar('win-main')">💻 Sistemes</div>
+      <div class="taskbar-item hidden" id="tb-win-docs" onclick="toggleWindowFromTaskbar('win-docs')">📂 Projectes</div>
+      <div class="taskbar-item hidden" id="tb-win-terminal" onclick="toggleWindowFromTaskbar('win-terminal')">⚡ Terminal</div>
+    </div>
+
+    <div class="system-tray">
+      <span>🔊</span>
+      <span>📶</span>
+      <div class="clock" id="taskbar-clock">00:00</div>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
