@@ -9,7 +9,7 @@ Repositori amb el contingut de Sistemes Informàtics.
 
 ## Us
 Aquest es un projecte de Sistemes Informàtics, es una web on podem accedir a travès d'aquest enllaç.
-https://abdelmounimelmamoun-eng.github.io/SIPJ1/
+https://abdelmounimelmamoun-eng.github.io/sistemes_operatius/
 
 ## Llicència
 
