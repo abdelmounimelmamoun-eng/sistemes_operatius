@@ -1,0 +1,405 @@
+/* ═══════════════════════════════════════════════════════════════
+   custom.css — Estils Windows 10 Cyberpunk
+   Ruta: assets/css/custom.css
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  --bg: #0a0812;
+  --bg-2: #100d1c;
+  --surface: #131021;
+  --surface-2: #1f1a35;
+  --border: rgba(224, 86, 255, 0.15);
+  --border-bright: rgba(224, 86, 255, 0.4);
+
+  --ink: #f5edff;
+  --ink-muted: #9d8bb8;
+  --ink-dim: #5a4a75;
+
+  --accent: #e056ff;
+  --accent-dim: rgba(224, 86, 255, 0.08);
+  --accent-glow: rgba(224, 86, 255, 0.25);
+  --green: #00ffcc;
+  --green-dim: rgba(0, 255, 204, 0.08);
+  --amber: #ffb830;
+  --amber-dim: rgba(255, 184, 48, 0.1);
+  --red: #ff477e;
+
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Syne', sans-serif;
+
+  --radius: 4px;
+  --radius-lg: 8px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: var(--font-mono);
+  background-color: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 0%, black 30%, transparent 100%);
+}
+
+.desktop {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 40px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 15px;
+  z-index: 1;
+}
+
+.desktop-icon {
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 4px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.15s ease;
+}
+
+.desktop-icon:hover {
+  background: var(--accent-dim);
+  border-color: var(--border-bright);
+}
+
+.icon-box {
+  width: 48px;
+  height: 48px;
+  background: var(--surface-2);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.desktop-icon span {
+  font-size: 0.75rem;
+  color: var(--ink);
+  text-align: center;
+}
+
+.window {
+  position: absolute;
+  background: var(--bg-2);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7), 0 0 20px var(--accent-glow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 10;
+  min-width: 320px;
+  min-height: 200px;
+}
+
+.window.hidden { display: none !important; }
+.window.minimized { transform: scale(0.8); opacity: 0; pointer-events: none; }
+
+.window-header {
+  background: var(--surface-2);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  cursor: move;
+  user-select: none;
+}
+
+.window-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.window-controls button {
+  background: transparent;
+  border: none;
+  color: var(--ink-muted);
+  width: 28px;
+  height: 24px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.window-controls button:hover {
+  background: var(--accent-dim);
+  color: var(--ink);
+}
+
+.window-controls button.close-btn:hover {
+  background: var(--red);
+  color: #fff;
+}
+
+.window-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: var(--bg);
+}
+
+.window-statusbar {
+  border-top: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px 12px;
+  font-size: 0.65rem;
+  color: var(--ink-dim);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 40px;
+  background: rgba(10, 8, 18, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-bright);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 8px;
+}
+
+.start-btn {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: var(--radius);
+}
+
+.start-btn:hover {
+  background: var(--accent-dim);
+}
+
+.taskbar-apps {
+  display: flex;
+  gap: 4px;
+  flex: 1;
+}
+
+.taskbar-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-bottom: 2px solid var(--accent);
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.taskbar-item.hidden { display: none; }
+.taskbar-item:hover, .taskbar-item.active { background: var(--accent-dim); }
+
+.system-tray {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+
+.start-menu {
+  position: fixed;
+  bottom: 40px; left: 0;
+  width: 380px;
+  height: 320px;
+  background: rgba(16, 13, 28, 0.98);
+  backdrop-filter: blur(25px);
+  border: 1px solid var(--border-bright);
+  border-radius: 0 var(--radius-lg) 0 0;
+  z-index: 998;
+  display: flex;
+  transform: translateY(100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.start-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.start-sidebar {
+  width: 48px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8px;
+  gap: 8px;
+}
+
+.start-sidebar button {
+  background: transparent;
+  border: none;
+  color: var(--ink-muted);
+  width: 32px; height: 32px;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.start-tiles { flex: 1; padding: 16px; }
+
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.tile {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tile:hover {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+}
+
+h1, h2, h3 { font-family: var(--font-display); }
+
+h2 {
+  font-size: 1.2rem;
+  margin-top: 20px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 4px;
+}
+h2::before { content: '// '; color: var(--accent); }
+
+p { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.5; }
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-bright);
+}
+a:hover { color: var(--ink); border-color: var(--accent); }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+.card:hover { border-color: var(--accent); }
+
+.badge {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 0.65rem;
+  border-radius: 3px;
+  border: 1px solid;
+}
+.badge--blue  { color: var(--accent); background: var(--accent-dim); border-color: var(--border-bright); }
+.badge--green { color: var(--green);  background: var(--green-dim);  border-color: rgba(0,255,204,0.3); }
+.badge--amber { color: var(--amber);  background: var(--amber-dim);  border-color: rgba(255,184,48,0.3); }
+
+.callout {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  border-radius: var(--radius);
+  font-size: 0.8rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-dim);
+  margin: 12px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+th, td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+th { color: var(--accent); background: var(--surface); }
+
+code {
+  background: var(--surface-2);
+  color: var(--accent);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.8em;
+}
+
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  display: inline-block;
+  box-shadow: 0 0 6px var(--green);
+}
+
+.terminal-body {
+  padding: 12px;
+  font-size: 0.8rem;
+  color: var(--green);
+  line-height: 1.5;
+}
