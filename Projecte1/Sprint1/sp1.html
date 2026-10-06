@@ -14,6 +14,11 @@
   <link rel="stylesheet" href="../../assets/css/custom.css">
 
   <style>
+    /* Assegurem que l'html i el body permetin el desplaçament vertical (scroll) */
+    html, body {
+      height: 100%;
+      overflow-y: auto;
+    }
     body {
       padding: 30px;
       max-width: 900px;
@@ -38,6 +43,7 @@
       border-radius: 8px;
       padding: 30px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      margin-bottom: 50px; /* Espai inferior per facilitat de lectura */
     }
     h1 {
       color: #fff;
@@ -53,7 +59,7 @@
       border-left: 3px solid var(--accent, #a855f7);
       padding-left: 10px;
     }
-    p {
+    p, ul {
       line-height: 1.6;
       color: #ccc;
       margin: 15px 0;
@@ -64,10 +70,6 @@
       padding: 2px 6px;
       border-radius: 4px;
       font-size: 0.9em;
-    }
-    ul {
-      color: #ccc;
-      line-height: 1.6;
     }
     .img-container {
       margin: 20px 0;
@@ -88,62 +90,61 @@
   <div class="doc-container">
     <h1>Pinning Packet - Configuració de Redis</h1>
     
-    <h2>1. Verificació de la política de versions disponible</h2>
+    <h2>// 1. Verificació de la política de versions disponible</h2>
     <p>En executar l'ordre <code>apt-cache policy redis-server</code> a la terminal, podem comprovar les versions de <code>redis-server</code> disponibles en els repositoris del sistema i quina està instal·lada o candidata (per exemple, la versió <code>5:7.0.15-1ubuntu0.24.04.4</code>).</p>
     
     <div class="img-container">
-      <img src="https://github.com/user-attachments/assets/b8b748ce-f528-4d04-8bd5-096277231760" alt="Comprovar política d'APT per a redis-server">
+      <!-- Canvia "img/captura1.png" per la ruta o URL real de la teva imatge -->
+      <img src="img/captura1.png" alt="Comprovar política d'APT per a redis-server">
     </div>
 
-    <h2>2. Creació i edició del fitxer de preferències de Pinning</h2>
+    <h2>// 2. Creació i edició del fitxer de preferències de Pinning</h2>
     <p>Per tal d'establir una preferència específica o bloquejar/fixar la versió del paquet de Redis en el gestor de paquets APT, executem l'editor de text <code>nano</code> amb privilegis d'administrador (<code>sudo</code>) per crear o modificar el fitxer de configuració dedicat a <code>/etc/apt/preferences.d/redis</code>.</p>
 
     <div class="img-container">
-      <img src="https://github.com/user-attachments/assets/59d4c72a-43cf-42fa-b71f-0e1041c30a59" alt="Execució de sudo nano /etc/apt/preferences.d/redis">
+      <img src="img/captura2.png" alt="Execució de sudo nano /etc/apt/preferences.d/redis">
     </div>
 
-    <h2>3. Definició de les regles de Pinning i Prioritat APT</h2>
+    <h2>// 3. Definició de les regles de Pinning i Prioritat APT</h2>
     <p>Dins del fitxer de configuració <code>/etc/apt/preferences.d/redis</code> establim els paràmetres de pinning per als paquets de Redis:</p>
     <ul>
       <li><code>Package: redis-server redis-tools</code> — Especifica els paquets als quals s'aplica aquesta regla.</li>
       <li><code>Pin: version 5:7.0.15-1build2</code> — Fixa la versió exacta requerida del paquet.</li>
-      <li><code>Pin-Priority: 1001</code> — Assigna una prioritat alta (>1000) per assegurar que el gestor APT forci la instal·lació d'aquesta versió, fins i tot si això implica fer un downgrade respecte a una versió instal·lada més recent.</li>
+      <li><code>Pin-Priority: 1001</code> — Assigna una prioritat alta (>1000) per assegurar que el gestor APT forci la instal·lació d'aquesta versió.</li>
     </ul>
 
     <div class="img-container">
-      <img src="https://github.com/user-attachments/assets/78958d_ID" alt="Configuració del fitxer de pinning per a redis amb Pin-Priority 1001">
+      <img src="img/captura3.png" alt="Configuració del fitxer de pinning per a redis">
     </div>
 
-    <h2>4. Verificació del Pinning efectuat a la política d'APT</h2>
+    <h2>// 4. Verificació del Pinning efectuat a la política d'APT</h2>
     <p>Tornem a executar <code>apt-cache policy redis-server</code> per validar que les nostres regles de pinning s'han aplicat correctament:</p>
     <ul>
-      <li>Es pot observar que la versió <code>5:7.0.15-1build2</code> té ara una prioritat assignada de <code>1001</code>.</li>
-      <li>Com a resultat, la versió <strong>Candidat</strong> d'instal·lació s'ha canviat automàticament a <code>5:7.0.15-1build2</code>, superant la prioritat per defecte (500) de les altres versions disponibles.</li>
+      <li>La versió <code>5:7.0.15-1build2</code> té ara una prioritat assignada de <code>1001</code>.</li>
+      <li>La versió <strong>Candidat</strong> d'instal·lació s'ha canviat automàticament a <code>5:7.0.15-1build2</code>.</li>
     </ul>
 
     <div class="img-container">
-      <img src="https://github.com/user-attachments/assets/789606_ID" alt="Verificació de la prioritat 1001 i nova versió candidata a apt-cache policy">
+      <img src="img/captura4.png" alt="Verificació de la prioritat 1001 i nova versió candidata">
     </div>
 
-    <h2>5. Instal·lació dels paquets de Redis seguint les regles de Pinning</h2>
-    <p>Un cop verificat que la política d'APT té com a candidata la versió que volem bloquejar, procedim a la instal·lació dels paquets <code>redis-server</code> i <code>redis-tools</code> utilitzant l'ordre següent amb privilegis de superusuari:</p>
+    <h2>// 5. Instal·lació dels paquets de Redis seguint les regles de Pinning</h2>
+    <p>Procedim a la instal·lació dels paquets utilitzant l'ordre següent:</p>
     <p><code>sudo apt install redis-server redis-tools</code></p>
-    <p>Aquesta ordre descarregarà i aplicarà la versió establerta prèviament per les regles de prioritat del fitxer de preferències.</p>
 
     <div class="img-container">
-      <img src="https://github.com/user-attachments/assets/789684_ID" alt="Execució de sudo apt install redis-server redis-tools">
+      <img src="img/captura5.png" alt="Execució de sudo apt install redis-server redis-tools">
     </div>
 
-    <h2>6. Verificació final de la versió executables i estat de la política d'APT</h2>
-    <p>Per comprovar que la instal·lació ha finalitzat correctament i s'està executant la versió desitjada de Redis, executem les ordres de comprovació:</p>
+    <h2>// 6. Verificació final de la versió executables i estat de la política d'APT</h2>
+    <p>Comprovem que la instal·lació ha finalitzat correctament:</p>
     <ul>
-      <li><code>redis-server --version</code> — Confirma que el binari executat correspon a la versió <code>7.0.15</code>[cite: 15].</li>
-      <li><code>apt policy redis-server</code> — Mostra que la versió instal·lada (<code>Instal·lat: 5:7.0.15-1build2</code>) coincideix exactament amb la fixa (<code>1001</code>) configurada en les regles de Pinning de l'APT[cite: 15].</li>
+      <li><code>redis-server --version</code> — Confirma la versió en execució (<code>7.0.15</code>).</li>
+      <li><code>apt policy redis-server</code> — Confirma que la versió instal·lada coincideix amb el pinning (<code>1001</code>).</li>
     </ul>
 
     <div class="img-container">
-      <!-- Recorda actualitzar el 'src' amb la URL d'aquesta darrera imatge -->
-      <img src="https://github.com/user-attachments/assets/7899c8_ID" alt="Comprovació de la versió instal·lada de redis-server i política final d'APT">
+      <img src="img/captura6.png" alt="Comprovació final de la versió instal·lada">
     </div>
   </div>
 
