@@ -4,7 +4,7 @@ Repositori amb el contingut de Sistemes Informàtics.
 
 ## Contingut
 
-- Índex amb enllaços de cada sprint del projecte 1.
+- Índex amb enllaços de cada sprint del projecte 1 i 2.
 - Carpetes amb separacions per sprint, amb contingut de cada part.
 
 ## Us
