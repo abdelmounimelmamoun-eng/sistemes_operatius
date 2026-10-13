@@ -7,7 +7,7 @@ Repositori amb el contingut de Sistemes Informàtics.
 - Índex amb enllaços de cada sprint del projecte 1 i 2.
 - Carpetes amb separacions per sprint, amb contingut de cada part.
 
-## Us
+## Ús
 Aquest es un projecte de Sistemes Informàtics, es una web on podem accedir a travès d'aquest enllaç.
 https://abdelmounimelmamoun-eng.github.io/sistemes_operatius/
 
