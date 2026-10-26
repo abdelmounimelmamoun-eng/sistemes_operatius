@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sprint 2 — Gestió de Processos i Monitorització</title>
+  
+  <!-- Fonts Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Assegurem que l'html i el body permetin el desplaçament vertical (scroll) */
+    html, body {
+      height: 100%;
+      overflow-y: auto;
+    }
+    body {
+      padding: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+      color: var(--ink, #e0e0e0);
+      background-color: #0b0a10;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      color: var(--accent, #a855f7);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-btn:hover {
+      text-decoration: underline;
+    }
+    .doc-container {
+      background: rgba(18, 16, 26, 0.8);
+      border: 1px solid var(--border, #2a2438);
+      border-radius: 8px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      margin-bottom: 50px;
+    }
+    h1 {
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      border-bottom: 2px solid var(--accent, #a855f7);
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+    h2 {
+      color: #fff;
+      font-size: 1.2rem;
+      margin-top: 35px;
+      border-left: 3px solid var(--accent, #a855f7);
+      padding-left: 10px;
+    }
+    p, ul {
+      line-height: 1.6;
+      color: #ccc;
+      margin: 15px 0;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    code {
+      background: #181524;
+      color: #00ffc3;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    .img-container {
+      margin: 25px 0;
+      text-align: center;
+    }
+    .img-container img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid var(--border, #3a344d);
+    }
+  </style>
+</head>
+<body>
 
+  <a href="../../index.html" class="back-btn">← Tornar a l'escriptori</a>
+
+  <div class="doc-container">
+    <h1>Sprint 2 — Gestió de Processos i Monitorització del Sistema</h1>
+    
+    <h2>// PAS 0: Assignació de permisos i execució del script d'inici</h2>
+    <p>Atorguem permisos d'execució (<code>chmod +x</code>) als fitxers i scripts del directori <code>missio</code> i verifiquem els permisos assignats amb <code>ls -l</code>. A continuació, executem el script <code>./sospitosos.sh</code>, el qual inicia la càrrega de tasques i mostra el missatge <em>"Fet. El servidor comença a anar lent..."</em>.</p>
+    
+    <div class="img-container">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArUAAADDCAYAAACcROm0AAAABHNCSVQICAgIfAhkiAAAABl0RVh0U29mdHdhcmUAZ25vbWUtc2NyZWVuc2hvdO8Dvz4AAAA6aVRYdENyZWF0aW9uIFRpbWUAAAAAAGRpbWFydHMsIDYgZOKAmW9jdHVicmUgZGUgMjAyNiwgMTQ6MTQ6MDSiaN76AAAgAElEQVR4nOzde7wdVX3w/8+6zOwTeaxUUAPIRX3VcHk0aKWPYIpUChUKIoXAS5BE5GW1pb60rX20VapEvDxqH2sjWEuxRFGectWCCJJI+UmIIZCAQCTRJOUi5RICuZDZM2utWb8/zpywz/HsPXPO2eckJ3zfr9d+Ec6atWatNWvPfPeam5o9e3aMMbJu3Tpe9apXIYQQQgghxHSjd3YFhBBCCCGEmCgJaoUQQgghxLRnO/9n+/btO6seQgghhBBCjNuwoHbz5s07qx5CCCGEEEKMm1x+IIQQQgghpj1bv4jYHekYmVn9e6NSFDu1Nv23u7dPCCGEEMPtsjO1Ng premature_end" alt="Pas 0 - Execució inicial de scripts" />
+    </div>
+
+    <h2>// PAS 1: Inspecció de l'arbre de processos (pstree)</h2>
+    <p>Observem la jerarquia de processos iniciats sota la instància de l'usuari a través de <code>systemd</code> (PID 2401). S'identifiquen els processos <code>backup_nocturn</code> (PID 6472) i <code>espia</code> (PID 6473) executant instruccions <code>sleep</code> en segon pla.</p>
+
+    <h2>// PAS 2: Monitorització de recursos en temps real (top)</h2>
+    <p>En executar <code>top</code> s'analitza el consum global del sistema (CPU al ~52.8% d'ús d'usuari). Es detecten dos processos anomenats <code>minador</code> (PIDs 6470 i 6471) que consumeixen aproximadament el 50% de CPU cadascun, saturant el processador.</p>
+
+    <div class="img-container">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAiwAAABeCAYAAAAAAk8KAAAABHNCSVQICAgIfAhkiAAAABl0RVh0U29mdHdhcmUAZ25vbWUtc2NyZWVuc2hvdO8Dvz4AAAA6aVRYdENyZWF0aW9uIFRpbWUAAAAAAGRpbWFydHMsIDYgZOKAmW9jdHVicmUgZGUgMjAyNiwgMTQ6MTM6MjeUgNV7AAAgAElEQVR4nO3debgcVZ3w8e85p6r6JgwjsgaQRXQMywCRiApGZIZFwCBEkvgMaCLwoCg66rwoouMocX0QdXiQRTFjoggjW3BYFEhYhBBCMBEDYXnfBMM2LCEhIdzqWs/7R9UNdTvdXdX39l0Cv8/z1JPcPl3nnKrTXfXrU6fqqIkTJ1prLWmaYq3FWsvKlSvZaaedKBPHMUmSbFp3KCml0FpjjMFxnCEtSwghhBCjy6DO/I7jSPAghBBCiCGnR7oCQgghhBBlJGARQgghxKgnAYsQQgghRj0JWIQQQggx6knAIoQQQohRr+UtPr29vcNZDyGEEEKIlloGLOvXrx/OegghhBBCtNT2ISq9vj9c9RBCCCGEaEnGsAgh3jQ+DxwMJFK+2AKNRPslwLP5Eg5juc0MS8DyJPAJYCfAkHXr/J5s498GvAPo68uxwJHAWYX0ywp5FdO3dH3bp5osnWzfbODtQA8wCXiou9UU4g0hAm4DjiU7DlUVAGOBa0eo/DJV6zdU5VfxJ+DdZMeoGnDOMJe/pWjXlsPRfs3K/xuwF7AHsGiIyl2YlxGVvG/In6v/DHAYsAPwE2B3shPyPoX3/I1sB31yqCszyrjALfSPWn3go2T7qYq7gM8BXwUOB34IfAxYTvbBE0JkVgBPkR3wpfzhkwBfBjzgd8BWwG7DXIc3gpFqv52BeWSdBft3OW8fGEMWgJkmrzca8h6WH5BFRfOBU4APkvUCbFd4z3uA/wTiISj/LmAysCNZZL8f/aPHCNiXbGdtDUwE5nawfh04m6xRa8A/AldXrJsCDiDb/r5lHVmUO71iHi+QBSznAUcAFwDPAY9XXF+IN4tbyb7HBzW8fi3wD2Tf3wPovCflKWAmMI7sR8gOwPMVy69y/NmN7EDt5enzO6xfu/LL8l8FnE7267oG7Ep2rEkL7ynbfzGwEjgTOIGsh3x8xfUHW/5dtD9+Q3n7tcs/Ac4HDiQLxByyc1wnl2yuA95FdoJ+L60vuzRrv260T1n5Y4HjgI8A2zakDWb715H9MP8wcA3QC8wiC4o+QRYgbWbixIn2oIMOshMmTLAHHnHHA==" alt="Pas 2 - Visualització del top i consum de CPU" />
+    </div>
+
+    <h2>// PAS 3: Localització i filtratge dels processos sospitosos</h2>
+    <p>Utilitzem <code>pgrep -l 'minador|espia|backup'</code> per identificar ràpidament els PIDs associats. Després apliquem el format personalitzat <code>ps -o pid,ppid,user,stat,elapsed,%cpu,comm -C minador,espia,backup_nocturn</code> per validar que tots depenen del procés pare PID 2401 (instància de <code>systemd</code> de l'usuari).</p>
+    <ul>
+      <li>Processos <code>minador</code> (PIDs 6470 i 6471): Estat <code>R</code> (Running), ~49.9% de CPU.</li>
+      <li>Processos <code>backup_nocturn</code> i <code>espia</code>: Estat <code>S</code> (Sleeping).</li>
+    </ul>
+
+    <h2>// PAS 4: Gestió de treballs en segon i primer pla (jobs, bg, fg)</h2>
+    <p>Comprovem amb <code>jobs -l</code> que la tasca <code>./descarrega.sh</code> està aturada (<code>[1]+ Parado</code> al 11%). Executem <code>bg %1</code> per reprendre-la en segon pla (<code>&amp;</code>) i posteriorment la retornem al primer pla amb <code>fg %1</code> fins que el procés avança al 74%.</p>
+
+    <h2>// PAS 5: Impacte de la càrrega en el temps de descàrrega</h2>
+    <p>Verifiquem novament amb <code>top</code> i mitjançant <code>cat progres.txt</code> com l'alta ocupació de CPU manté la descàrrega lenta fins a completar el fitxer <code>ubuntu.iso</code> en 95 segons.</p>
+
+    <h2>// PAS 6: Intent i finalització forçada de processos (kill)</h2>
+    <p>Intentem finalitzar el procés <code>espia</code> (PID 6473) amb la senyal per defecte <code>kill 6473</code> (<code>SIGTERM</code>), però el programa la captura (<code>[espia] SIGTERM? Ni parlar-ne!</code>). Per tant, forcem la seva eliminació immediata utilitzant <code>kill -9 6473</code> (<code>SIGKILL</code>).</p>
+    
+    <div class="img-container">
+      <img src="data:image/png;base64,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" alt="Pas 6 - Eliminació forçada del procés espia" />
+    </div>
+
+    <h2>// PAS 7: Finalització massiva de tasques i verificació final</h2>
+    <p>Comprovem que sense la càrrega de subprocessos la descàrrega finalitza en un temps optimitzat de 33 s. Finalment, executem l'ordre de neteja massiva <code>pkill 'minador|espia|backup_nocturn|descarrega'</code> i validem amb <code>pgrep</code> que no queda cap procés actiu.</p>
+    <ul>
+      <li><code>pkill 'minador|espia|backup_nocturn|descarrega'</code> — Finalitza tots els processos associats.</li>
+      <li><code>pgrep -l 'minador|espia|backup_nocturn|descarrega'</code> — Retorna una eixida buida, confirmant la neteja total de la memòria.</li>
+    </ul>
+
+  </div>
+
+</body>
+</html>
