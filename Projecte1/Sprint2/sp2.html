@@ -97,24 +97,24 @@
     <p>Atorguem permisos d'execució (<code>chmod +x</code>) als fitxers i scripts del directori <code>missio</code> i verifiquem els permisos assignats amb <code>ls -l</code>. A continuació, executem el script <code>./sospitosos.sh</code>, el qual inicia la càrrega de tasques i mostra el missatge <em>"Fet. El servidor comença a anar lent..."</em>.</p>
     
     <div class="img-container">
-      <img src="image_e2617a.png" alt="Pas 0 - Assignació de permisos chmod i llistat ls -l" />
+      <img src="img/Sprint 2 - Ubuntu/image_e2617a.png" alt="Pas 0 - Assignació de permisos chmod i llistat ls -l" />
     </div>
     <div class="img-container">
-      <img src="image_e2615d.png" alt="Pas 0 - Execució inicial de sospitosos.sh" />
+      <img src="img/Sprint 2 - Ubuntu/image_e2615d.png" alt="Pas 0 - Execució inicial de sospitosos.sh" />
     </div>
 
     <h2>// PAS 1: Inspecció de l'arbre de processos (pstree)</h2>
     <p>Observem la jerarquia de processos iniciats sota la instància de l'usuari a través de <code>systemd</code> (PID 2401). S'identifiquen els processos <code>backup_nocturn</code> (PID 6472) i <code>espia</code> (PID 6473) executant instruccions <code>sleep</code> en segon pla.</p>
 
     <div class="img-container">
-      <img src="image_e25dd5.png" alt="Pas 1 - Inspecció de l'arbre de processos amb pstree" />
+      <img src="img/Sprint 2 - Ubuntu/image_e25dd5.png" alt="Pas 1 - Inspecció de l'arbre de processos amb pstree" />
     </div>
 
     <h2>// PAS 2: Monitorització de recursos en temps real (top)</h2>
     <p>En executar <code>top</code> s'analitza el consum global del sistema (CPU al ~52.8% d'ús d'usuari). Es detecten dos processos anomenats <code>minador</code> (PIDs 6470 i 6471) que consumeixen aproximadament el 50% de CPU cadascun, saturant el processador.</p>
 
     <div class="img-container">
-      <img src="image_e25d9e.jpg" alt="Pas 2 - Visualització del top i consum de CPU dels processos minador" />
+      <img src="img/Sprint 2 - Ubuntu/image_e25d9e.jpg" alt="Pas 2 - Visualització del top i consum de CPU dels processos minador" />
     </div>
 
     <h2>// PAS 3: Localització i filtratge dels processos sospitosos</h2>
@@ -125,28 +125,28 @@
     </ul>
 
     <div class="img-container">
-      <img src="image_e25d79.png" alt="Pas 3 - Localització i filtratge dels processos amb pgrep i ps" />
+      <img src="img/Sprint 2 - Ubuntu/image_e25d79.png" alt="Pas 3 - Localització i filtratge dels processos amb pgrep i ps" />
     </div>
 
     <h2>// PAS 4: Gestió de treballs en segon i primer pla (jobs, bg, fg)</h2>
     <p>Comprovem amb <code>jobs -l</code> que la tasca <code>./descarrega.sh</code> està aturada (<code>[1]+ Parado</code> al 11%). Executem <code>bg %1</code> per reprendre-la en segon pla (<code>&amp;</code>) i posteriorment la retornem al primer pla amb <code>fg %1</code> fins que el procés avança al 74%.</p>
 
     <div class="img-container">
-      <img src="image_e25d42.png" alt="Pas 4 - Control de treballs amb jobs, bg i fg" />
+      <img src="img/Sprint 2 - Ubuntu/image_e25d42.png" alt="Pas 4 - Control de treballs amb jobs, bg i fg" />
     </div>
 
     <h2>// PAS 5: Impacte de la càrrega en el temps de descàrrega</h2>
     <p>Verifiquem novament amb <code>top</code> i mitjançant <code>cat progres.txt</code> com l'alta ocupació de CPU manté la descàrrega lenta fins a completar el fitxer <code>ubuntu.iso</code> en 95 segons.</p>
 
     <div class="img-container">
-      <img src="image_e25d1d.png" alt="Pas 5 - Verificació del temps de descàrrega completat en 95s" />
+      <img src="img/Sprint 2 - Ubuntu/mage_e25d1d.png" alt="Pas 5 - Verificació del temps de descàrrega completat en 95s" />
     </div>
 
     <h2>// PAS 6: Intent i finalització forçada de processos (kill)</h2>
     <p>Intentem finalitzar el procés <code>espia</code> (PID 6473) amb la senyal per defecte <code>kill 6473</code> (<code>SIGTERM</code>), però el programa la captura (<code>[espia] SIGTERM? Ni parlar-ne!</code>). Per tant, forcem la seva eliminació immediata utilitzant <code>kill -9 6473</code> (<code>SIGKILL</code>).</p>
     
     <div class="img-container">
-      <img src="image_e25ce4.png" alt="Pas 6 - Intent de kill i eliminació forçada amb kill -9" />
+      <img src="img/Sprint 2 - Ubuntu/image_e25ce4.png" alt="Pas 6 - Intent de kill i eliminació forçada amb kill -9" />
     </div>
 
     <h2>// PAS 7: Finalització massiva de tasques i verificació final</h2>
@@ -157,13 +157,13 @@
     </ul>
 
     <div class="img-container">
-      <img src="image_e25cc2.png" alt="Pas 7 - Temps optimitzat de descàrrega en 33s" />
+      <img src="img/Sprint 2 - Ubuntu/image_e25cc2.png" alt="Pas 7 - Temps optimitzat de descàrrega en 33s" />
     </div>
     <div class="img-container">
-      <img src="image_e259dd.png" alt="Pas 7 - Aturar tots els processos amb pkill i comprovar amb pgrep" />
+      <img src="img/Sprint 2 - Ubuntu/image_e259dd.png" alt="Pas 7 - Aturar tots els processos amb pkill i comprovar amb pgrep" />
     </div>
     <div class="img-container">
-      <img src="image_e259fc.png" alt="Pas 7 - Verificació final amb pstree" />
+      <img src="img/Sprint 2 - Ubuntu/image_e259fc.png" alt="Pas 7 - Verificació final amb pstree" />
     </div>
 
   </div>
